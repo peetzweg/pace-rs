@@ -23,6 +23,14 @@ impl Add<Meters> for Kilometers {
     }
 }
 
+impl Add<Kilometers> for Meters {
+    type Output = Meters;
+
+    fn add(self, rhs: Kilometers) -> Self::Output {
+        Meters::from(rhs) + self
+    }
+}
+
 impl From<Distance> for Meters {
     fn from(distance: Distance) -> Self {
         Kilometers(distance.0) + Meters(distance.1)
@@ -75,6 +83,7 @@ impl Display for Meters {
         write!(f, "{} m", self.0)
     }
 }
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -36,9 +36,6 @@ fn main() {
             let duration =
                 Duration::try_from(duration).expect("Invalid duration, use format HH:MM:SS");
 
-            println!("{:?}", distance);
-            println!("{:?}", duration);
-
             let pace = Meters::from(distance) / Seconds::from(duration);
 
             println!("{}", pace);
